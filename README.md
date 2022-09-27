@@ -93,7 +93,3 @@ This project exists to demonstrate problems when using requests-cache with PyIns
    File "requests_cache/serializers/pipeline.py", line 44, in <listcomp>
    AttributeError: type object 'Placeholder' has no attribute 'loads'
    ```
-
-```
-
-```
