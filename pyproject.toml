@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "requests-cache-pyinstaller"
+version = "0.1.0"
+description = ""
+authors = ["Evan Derickson <evan.derickson@kaart.com>"]
+readme = "README.md"
+packages = [{include = "requests_cache_pyinstaller"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+PySide6 = "^6.3.2"
+requests-cache = "^0.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
