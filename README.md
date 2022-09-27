@@ -8,14 +8,16 @@ This project exists to demonstrate problems when using requests-cache with PyIns
 2. Make `pyinstaller_entry.py` executable
 3. `poetry run ./pyinstaller_entry.py`
 4. If the window with a "Get" button appears, the app is working properly
+5. Clicking "Get" will query a sample endpoint and print the response body to the terminal
 
 ## Run as packaged Pyinstaller app
 
 1. Install dependencies with poetry
 2. `poetry run pyinstaller ./requests-cache-pyinstaller.spec -y`
 3. Run in terminal (poetry not required this time) `'./dist/Requests Cache Pyinstaller/Requests Cache Pyinstaller Test'`
-4. You will get something like the following:
-   ```
+4. The application will crash with something like the following:
+
+   ```console
    Traceback (most recent call last):
    File "pyinstaller_entry.py", line 3, in <module>
    from requests_cache_pyinstaller import main
