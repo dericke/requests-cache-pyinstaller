@@ -1,3 +1,5 @@
 requests_cache_pyinstaller/mainwindow.py
 poetry.lock
 *.pyc
+dist/
+build/

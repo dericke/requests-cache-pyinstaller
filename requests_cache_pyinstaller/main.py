@@ -33,14 +33,19 @@ class MainApp(QMainWindow, mainwindow.Ui_MainWindow):
 
     def setup_cache(self) -> None:
         CACHE_LOCATION.mkdir(exist_ok=True, parents=True)
-        expiry = timedelta(hours=12)
-        requests_cache.remove_expired_responses(expiry)
+        expiry = timedelta(
+            # hours=12,
+            seconds=1
+        )
         self.session = requests_cache.CachedSession(
             backend=requests_cache.backends.sqlite.SQLiteCache(
                 db_path=CACHE_LOCATION / "cache.sqlite",
                 use_cache_dir=True,
-            )
+            ),
+            serializer="json",
+            expire_after=expiry,
         )
+        self.session.remove_expired_responses(expiry)
         print("Request caching enabled")
 
     def get_request(self) -> None:
@@ -48,6 +53,7 @@ class MainApp(QMainWindow, mainwindow.Ui_MainWindow):
 
         comments = r.json()
 
+        print(f"Response is{'' if r.from_cache else ' not'} from the cache")
         for comment in comments:
             pprint(comment)
 
